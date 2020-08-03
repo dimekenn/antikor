@@ -12,7 +12,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -96,6 +96,5 @@
             <version>3.9</version>
         </dependency>
     </dependencies>
-
 
 </project>
