@@ -22,7 +22,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>AntiKor.src.main.java.Main</mainClass>
+                                    <mainClass>Musketeers.kz.Main</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
