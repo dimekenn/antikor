@@ -119,9 +119,9 @@ public class DaoFactory {
     //    return new ServiceSurveyAnswerDao();
     //}
 
-    //public RegistrationEventDao getRegistrationEventDao() {
-    //    return new RegistrationEventDao();
-    //}
+    public RegistrationEventDao getRegistrationEventDao() {
+        return new RegistrationEventDao();
+    }
 
     //public GroupDao getGroupDao() {
     //    return new GroupDao();
