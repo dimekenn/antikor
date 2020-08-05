@@ -11,7 +11,7 @@ import java.util.List;
 public class CategoriesDao extends AbstractDao<Categories> {
 
     public List<Categories> getAll() {
-        sql = "SELECT * FROM NAUR.CATEGORIES WHERE LANG_ID = ?";
+        sql = "SELECT * FROM "+Const.TABLE_NAME+".CATEGORIES WHERE LANG_ID = ?";
         return getJdbcTemplate().query(sql, setParam(getLanguage().getId()) ,this::mapper);
     }
 

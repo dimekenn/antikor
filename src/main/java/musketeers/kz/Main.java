@@ -1,3 +1,5 @@
+package Musketeers.kz;
+
 import Musketeers.kz.config.Bot;
 import lombok.extern.slf4j.Slf4j;
 import org.telegram.telegrambots.ApiContextInitializer;
