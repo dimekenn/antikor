@@ -53,8 +53,8 @@ public class CommandFactory {
    //             return new id019_EditEvent();
    //         case 20:
    //             return new id020_ReportService();
-   //         case 21:
-   //             return new id021_Registration();
+            case 21:
+                return new id021_Registration();
    //         case 22:
    //             return new id022_Consultation();
    //         case 23:

@@ -15,6 +15,7 @@ public class Const {
 
     public final static int RU_LANGUAGE                             = 3;
     public final static int KZ_LANGUAGE                             = 2;
+    public final static int EN_LANGUAGE                             = 4;
 
     public final static int BOT_NAME                                =    1;
     public final static int BOT_TOKEN                               =    2;
