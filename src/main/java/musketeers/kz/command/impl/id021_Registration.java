@@ -1,7 +1,7 @@
-package musketeers.kz.command.impl;
+package Musketeers.kz.command.impl;
 
-import musketeers.kz.command.Command;
-import musketeers.kz.services.Registration;
+import Musketeers.kz.command.Command;
+import Musketeers.kz.services.Registration;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class id021_Registration extends Command {

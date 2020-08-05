@@ -1,7 +1,7 @@
 package Musketeers.kz.command;
 
 import Musketeers.kz.dao.DaoFactory;
-import musketeers.kz.dao.impl.*;
+import Musketeers.kz.dao.impl.*;
 import Musketeers.kz.entity.enums.WaitingType;
 import Musketeers.kz.utils.BotUtil;
 import Musketeers.kz.utils.Const;

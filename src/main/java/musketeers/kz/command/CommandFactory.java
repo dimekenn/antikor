@@ -1,7 +1,7 @@
 package Musketeers.kz.command;
 
 import Musketeers.kz.exceptions.NotRealizedMethodException;
-import musketeers.kz.command.impl.*;
+import Musketeers.kz.command.impl.*;
 
 public class CommandFactory {
 
