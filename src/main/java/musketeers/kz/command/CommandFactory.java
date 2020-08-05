@@ -84,6 +84,8 @@ public class CommandFactory {
    //             return new id035_SpecialistEdit();
    //         case 36:
    //             return new id036_Photo();
+            case 37:
+                return new id037_ShowCategories();
        }
        return null;
    }

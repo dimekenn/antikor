@@ -123,6 +123,8 @@ public class DaoFactory {
         return new RegistrationEventDao();
     }
 
+    public CategoriesDao getCategoriesDao(){return new CategoriesDao();}
+
     //public GroupDao getGroupDao() {
     //    return new GroupDao();
     //}

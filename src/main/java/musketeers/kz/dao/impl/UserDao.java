@@ -11,12 +11,12 @@ import java.util.List;
 public class UserDao extends AbstractDao<User> {
 
     public void insert(User user) {
-        sql = "INSERT INTO USERS (CHAT_ID, USER_NAME, PHONE, FULL_NAME, EMAIL, IIN, STATUS) VALUES (?,?,?,?,?,?,?)";
+        sql = "INSERT INTO USERS (CHAT_ID, PHONE, FULL_NAME) VALUES (?,?,?)";
         getJdbcTemplate().update(sql, user.getChatId(),  user.getPhone(), user.getFullName());
     }
 
     public void update(User user) {
-        sql = "UPDATE USERS SET PHONE = ?, FULL_NAME = ?, EMAIL = ?, USER_NAME = ? WHERE CHAT_ID = ?";
+        sql = "UPDATE USERS SET PHONE = ?, FULL_NAME = ? WHERE CHAT_ID = ?";
         getJdbcTemplate().update(sql, user.getPhone(), user.getFullName(), user.getChatId());
     }
 
@@ -36,7 +36,7 @@ public class UserDao extends AbstractDao<User> {
     }
 
     public List<User> getAll() {
-        sql = "SELECT * FROM USERS WHERE EMAIL = ?";
+        sql = "SELECT * FROM USERS";
         return getJdbcTemplate().query(sql, setParam(Const.TABLE_NAME), this::mapper);
     }
 

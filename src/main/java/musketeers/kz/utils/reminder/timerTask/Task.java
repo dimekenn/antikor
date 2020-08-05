@@ -13,21 +13,21 @@ import java.util.List;
 
 public class Task extends AbstractTask {
 
-    private List<User>          users;
-    private List<ReminderTask>  tasks;
-    private Date                start;
+    private List<User> users;
+    private List<ReminderTask> tasks;
+    private Date start;
 
     public Task(Bot bot, Reminder reminder) {
         super(bot, reminder);
     }
 
     @Override
-    public  void run() {
-        users           = userDao.getAll();
-        start           = new Date();
-        Date dateEnd    = new Date();
+    public void run() {
+        users = userDao.getAll();
+        start = new Date();
+        Date dateEnd = new Date();
         dateEnd.setDate(dateEnd.getDay() + 1);
-        tasks           = reminderTaskDao.getByTime(start, dateEnd);
+        tasks = reminderTaskDao.getByTime(start, dateEnd);
         checkMessage();
         reminder.setMorningTask(17);
     }
@@ -41,7 +41,8 @@ public class Task extends AbstractTask {
             if (DateUtil.getDayDate(e.getDateBegin()).equals(DateUtil.getDayDate(start))) {
                 try {
                     bot.execute(new SendMessage().setChatId(user.getChatId()).setText(e.getText()));
-                } catch (TelegramApiException ex) {}
+                } catch (TelegramApiException ex) {
+                }
             }
         });
     }
