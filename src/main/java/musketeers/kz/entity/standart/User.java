@@ -9,8 +9,8 @@ public class User {
     private long   chatId;
     private String phone;
     private String fullName;
-    private String email;
-    private String userName;
-    private String iin;
-    private String status;
+//    private String email;
+//    private String userName;
+//    private String iin;
+//    private String status;
 }

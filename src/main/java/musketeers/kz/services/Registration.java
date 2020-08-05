@@ -37,7 +37,7 @@ public class Registration {
             case START:
                 user = new User();
                 user.setChatId(chatId);
-                user.setEmail(Const.TABLE_NAME);
+//                user.setEmail(Const.TABLE_NAME);
                 getName();
                 waitingType = WaitingType.SET_FULL_NAME;
                 return COMEBACK;
@@ -54,39 +54,44 @@ public class Registration {
             case SET_PHONE_NUMBER:
                 if (botUtil.hasContactOwner(update)) {
                     user.setPhone(update.getMessage().getContact().getPhoneNumber());
-                    user.setUserName(UpdateUtil.getFrom(update));
-                    getStatus();
-                    waitingType = WaitingType.SET_STATUS;
+//                    user.setUserName(UpdateUtil.getFrom(update));
+                    return EXIT;
+//                    getStatus();
+
+
+//                    waitingType = WaitingType.SET_STATUS;
                 } else {
                     wrongData();
                     getPhone();
                 }
                 return COMEBACK;
-            case SET_STATUS:
-                if (update.hasCallbackQuery()) {
-                    if (list.get(Integer.parseInt(update.getCallbackQuery().getData())).equals(getText(Const.OTHERS_MESSAGE))) {
-                        getOther();
-                        waitingType = WaitingType.OTHER_STATUS;
-                    } else {
-                        user.setStatus(list.get(Integer.parseInt(update.getCallbackQuery().getData())));
-                        return EXIT;
-                    }
-                } else {
-                    wrongData();
-                    getStatus();
-                }
-                return COMEBACK;
-            case OTHER_STATUS:
-                if (update.hasMessage() && update.getMessage().hasText()) {
-                    user.setStatus(update.getMessage().getText());
-                    return EXIT;
-                } else {
-                    wrongData();
-                    getOther();
-                }
-                return COMEBACK;
+//                case
+
+//            case SET_STATUS:
+//                if (update.hasCallbackQuery()) {
+//                    if (list.get(Integer.parseInt(update.getCallbackQuery().getData())).equals(getText(Const.OTHERS_MESSAGE))) {
+//                        getOther();
+//                        waitingType = WaitingType.OTHER_STATUS;
+//                    } else {
+//                        user.setStatus(list.get(Integer.parseInt(update.getCallbackQuery().getData())));
+//                        return EXIT;
+//                    }
+//                } else {
+//                    wrongData();
+//                    getStatus();
+//                }
+//                return COMEBACK;
+//            case OTHER_STATUS:
+//                if (update.hasMessage() && update.getMessage().hasText()) {
+//                    user.setStatus(update.getMessage().getText());
+//                    return EXIT;
+//                } else {
+//                    wrongData();
+//                    getOther();
+//                }
+//                return COMEBACK;
         }
-        return true;
+        return EXIT;
     }
 
     private int wrongData() throws TelegramApiException {
@@ -101,29 +106,29 @@ public class Registration {
         return botUtil.sendMessage(Const.SEND_CONTACT_MESSAGE, chatId);
     }
 
-    private int getIin() throws TelegramApiException {
-        return botUtil.sendMessage(Const.SET_IIN_MESSAGE, chatId);
-    }
+//    private int getIin() throws TelegramApiException {
+//        return botUtil.sendMessage(Const.SET_IIN_MESSAGE, chatId);
+//    }
+//
+//    private int wrongIinNotNumber() throws TelegramApiException {
+//        return botUtil.sendMessage(Const.IIN_WRONG_MESSAGE, chatId);
+//    }
+//
+//    private int getStatus() throws TelegramApiException {
+//        list = new ArrayList<>();
+//        Arrays.asList(getText(Const.STATUS_TYPE_MESSAGE).split(Const.SPLIT)).forEach((e) -> list.add(e));
+//        list.add(getText(Const.OTHERS_MESSAGE));
+//        buttonsLeaf = new ButtonsLeaf(list);
+//        return botUtil.sendMessageWithKeyboard(getText(Const.STATUS_MESSAGE), buttonsLeaf.getListButton(), chatId);
+//    }
+//
+//    private int getOther() throws TelegramApiException {
+//        return botUtil.sendMessage(Const.SET_YOUR_OPTION_MESSAGE, chatId);
+//    }
 
-    private int wrongIinNotNumber() throws TelegramApiException {
-        return botUtil.sendMessage(Const.IIN_WRONG_MESSAGE, chatId);
-    }
-
-    private int getStatus() throws TelegramApiException {
-        list = new ArrayList<>();
-        Arrays.asList(getText(Const.STATUS_TYPE_MESSAGE).split(Const.SPLIT)).forEach((e) -> list.add(e));
-        list.add(getText(Const.OTHERS_MESSAGE));
-        buttonsLeaf = new ButtonsLeaf(list);
-        return botUtil.sendMessageWithKeyboard(getText(Const.STATUS_MESSAGE), buttonsLeaf.getListButton(), chatId);
-    }
-
-    private int getOther() throws TelegramApiException {
-        return botUtil.sendMessage(Const.SET_YOUR_OPTION_MESSAGE, chatId);
-    }
-
-    private String getText(int messageIdFromDb) {
-        return messageDao.getMessageText(messageIdFromDb);
-    }
+//    private String getText(int messageIdFromDb) {
+//        return messageDao.getMessageText(messageIdFromDb);
+//    }
 
     public User getUser() {
         return user;
