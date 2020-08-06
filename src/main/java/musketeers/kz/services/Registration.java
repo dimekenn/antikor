@@ -42,7 +42,7 @@ public class Registration {
                 waitingType = WaitingType.SET_FULL_NAME;
                 return COMEBACK;
             case SET_FULL_NAME:
-                if (update.hasMessage() && update.getMessage().hasText() && update.getMessage().getText().length() <= 50) {
+                    if (update.hasMessage() && update.getMessage().hasText() && update.getMessage().getText().length() <= 50) {
                     user.setFullName(update.getMessage().getText());
                     getPhone();
                     waitingType = WaitingType.SET_PHONE_NUMBER;

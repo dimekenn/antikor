@@ -24,6 +24,7 @@ public class Const {
     public final static int KEYBOARD_EDIT_BUTTON_ID = 12;
     public final static int JOIN_EVENT_KEYBOARD = 19;
     public final static int EVENT_KEYBOARD = 22;
+    public final static int PHOTO_VIDEO_KEYBOARD = 1002;
 
     public final static int CHANGE_BUTTON_NAME = 28;
     public final static int CHANGE_BUTTON_TEXT = 29;
@@ -208,4 +209,9 @@ public class Const {
     public static final int HANDLING_INFO_MESSAGE_KZ = 1166;
     public static final int CATEGORY_LIST_EMPTY = 1167;
     public static final int CATEGORY_CHOOSE = 1168;
+    public static final int WRITE_REPORT = 1169;
+    public static final int SEND_PHOTO_VIDEO = 1170;
+    public static final int PUT_PHOTO_VIDEO = 1171;
+    public static final int WRONG_TYPE = 1172;
+    public static final int SEND_LOCATION = 1173;
 }
