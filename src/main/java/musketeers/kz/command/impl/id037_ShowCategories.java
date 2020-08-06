@@ -1,8 +1,13 @@
 package Musketeers.kz.command.impl;
 
 import Musketeers.kz.command.Command;
+import Musketeers.kz.dao.impl.CategoriesDao;
+import Musketeers.kz.dao.impl.ReportsDao;
+import Musketeers.kz.entity.enums.Language;
 import Musketeers.kz.entity.enums.WaitingType;
 import Musketeers.kz.entity.standart.Categories;
+import Musketeers.kz.entity.standart.Reports;
+import Musketeers.kz.entity.standart.User;
 import Musketeers.kz.utils.ButtonsLeaf;
 import Musketeers.kz.utils.Const;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -15,7 +20,11 @@ public class id037_ShowCategories extends Command {
     private Categories category;
     private ButtonsLeaf buttonsLeaf;
     private int deleteMessageId;
+    private User currentUser;
+    private CategoriesDao categoriesDao;
+    private Reports reports;
     private int secondDeleteMessageId;
+    private Language currentLanguage;
 //    private RegistrationEvent   registrationEvent;
 
     @Override
@@ -37,7 +46,10 @@ public class id037_ShowCategories extends Command {
             case CATEGORY_SELECTION:
                 deleteMessage(updateMessageId);
                 if (hasCallbackQuery()) {
-
+                    //int categoryId = categories.get(Integer.parseInt(updateMessageText)).getId(); // Сохранение ID
+                    String categorys = categories.get(Integer.parseInt(updateMessageText)).getName(); //Сохранение обьекта
+                    System.out.println(categorys);
+                    //reports.setCategoryName(categories.get(Integer.parseInt(updateMessageText)).getName());
                 }
                 return COMEBACK;
         }

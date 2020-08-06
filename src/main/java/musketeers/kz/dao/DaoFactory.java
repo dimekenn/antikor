@@ -66,6 +66,9 @@ public class DaoFactory {
     public RecipientDao getRecipientDao() {
         return new RecipientDao();
     }
+    public ReportsDao getReportsDao(){
+        return new ReportsDao();
+    }
 
     //public CoursesTypeDao getCoursesTypeDao() {
     //    return new CoursesTypeDao();

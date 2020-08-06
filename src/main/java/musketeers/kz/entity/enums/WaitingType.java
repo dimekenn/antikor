@@ -32,6 +32,8 @@ public enum WaitingType {
 
     CATEGORY_SELECTION,
 
+    REPORT_TEXT, REPORT_FILES,
+
     START_DATE, END_DATE,
 
     CHOOSE_EVENT, NEW_EVENT, SET_PHOTO, SET_TEXT_EVENT,
@@ -45,4 +47,6 @@ public enum WaitingType {
     SET_COUNT_PEOPLE,
 
     HANDLING_EMPLOYEE, MEETING_DATE, MEETING_TIME,
+    ;
+
 }
