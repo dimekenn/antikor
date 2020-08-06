@@ -10,8 +10,8 @@ import java.sql.SQLException;
 public class ReportsDao extends AbstractDao<Reports> {
 
     public void insert(Reports reports){
-        sql = "INSERT INTO "+ Const.TABLE_NAME+ ".REPORTS (ID, REPORT_TEXT, PHOTO, VIDEO, LOCATION, iS_DONE, iS_DONE, FULL_NAME, CATEGORIES) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        getJdbcTemplate().update(sql, reports.getID(), reports.getReportText(), reports.getPhoto(), reports.getVideo(), reports.getLocation(), reports.getIsDone(), reports.getFullName(), reports.getCategoryName());
+        sql = "INSERT INTO "+ Const.TABLE_NAME+ ".REPORTS (ID, REPORT_TEXT, PHOTO, VIDEO, LOCATION, iS_DONE, CHAT_ID, FULL_NAME, CATEGORIES) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        getJdbcTemplate().update(sql, reports.getID(), reports.getReportText(), reports.getPhoto(), reports.getVideo(), reports.getLocation(), reports.getIsDone(), reports.getChatID(), reports.getFullName(), reports.getCategoryName());
     }
 
     @Override
@@ -23,7 +23,7 @@ public class ReportsDao extends AbstractDao<Reports> {
         reports.setVideo(rs.getString(4));
         reports.setLocation(rs.getString(5));
         reports.setIsDone(rs.getInt(6));
-        reports.setChatID(rs.getInt(7));
+        reports.setChatID(rs.getLong(7));
         reports.setFullName(rs.getString(8));
         reports.setCategoryName(rs.getString(9));
         return reports;

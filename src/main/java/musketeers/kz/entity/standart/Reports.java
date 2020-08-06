@@ -10,7 +10,7 @@ public class Reports {
     private String video;
     private String location;
     private int isDone;
-    private int chatID;
+    private Long chatID;
     private String fullName;
     private String categoryName;
 }

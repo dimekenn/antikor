@@ -23,8 +23,7 @@ public class id037_ShowCategories extends Command {
     private int deleteMessageId;
     private CategoriesDao categoriesDao;
     private Reports reports = new Reports();
-    private ReportsDao reportsDao;
-//    private final User currentUser = userDao.getUserByChatId(chatId);
+    private ReportsDao reportsDao = factory.getReportsDao();
     private int secondDeleteMessageId;
     private Language currentLanguage;
 //    private RegistrationEvent   registrationEvent;
@@ -51,8 +50,8 @@ public class id037_ShowCategories extends Command {
                     //int categoryId = categories.get(Integer.parseInt(updateMessageText)).getId(); // Сохранение ID
                     String categorys = categories.get(Integer.parseInt(updateMessageText)).getName(); //Сохранение обьекта
                     reports.setCategoryName(categorys);
-//                    reports.setChatID(currentUser.getChatId());
-//                    reports.setFullName(currentUser.getFullName());
+                    reports.setChatID(chatId);
+                    reports.setFullName(userDao.getUserByChatId(chatId).getFullName());
                     sendMessage(getText(Const.WRITE_REPORT));
                     waitingType = WaitingType.REPORT_TEXT;
                 }
@@ -69,17 +68,24 @@ public class id037_ShowCategories extends Command {
                 deleteMessage(updateMessageId);
                 if (isButton(1056)) {
                     sendMessage(Const.PUT_PHOTO_VIDEO);
-                } else if (isButton(1057)){
+                } else
+                if (isButton(1057)){
+                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
                     waitingType = WaitingType.SEND_LOCATION;
                 }
                 waitingType = WaitingType.REPORT_PHOTO;
                 return COMEBACK;
             case REPORT_PHOTO:
                 deleteMessage(updateMessageId);
-                if (hasPhoto()) {
+                System.out.println("zdrasti");
+                if (update.getMessage().hasPhoto()) {
+                    System.out.println("zdrasti2");
                     reports.setPhoto(updateMessagePhoto);
-                } else if (hasVideo()){
-                    reports.setVideo(updateMessage.getVideo().getFileId());
+                    System.out.println("zdrasti3");
+//                } if (hasVideo()){
+//                    reports.setVideo(updateMessage.getVideo().getFileId());
+                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
+                    waitingType = WaitingType.SEND_LOCATION;
                 } else {
                     sendMessage(Const.WRONG_TYPE);
                 }
@@ -92,9 +98,17 @@ public class id037_ShowCategories extends Command {
                 Float longitude = update.getMessage().getLocation().getLongitude();
                 String location = latitude + ";" + longitude;
                 reports.setLocation(location);
+                sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
+                waitingType = WaitingType.SEND_REPORT;
                 return COMEBACK;
+            case SEND_REPORT:
+                if (isButton(1058)){
+                    reportsDao.insert(reports);
+                    return EXIT;
+                }
+
         }
-        reportsDao.insert(reports);
+
         return EXIT;
     }
 
