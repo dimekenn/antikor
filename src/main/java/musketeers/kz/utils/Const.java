@@ -25,6 +25,8 @@ public class Const {
     public final static int JOIN_EVENT_KEYBOARD = 19;
     public final static int EVENT_KEYBOARD = 22;
     public final static int PHOTO_VIDEO_KEYBOARD = 1002;
+    public final static int LOCATION_KEYBOARD = 1003;
+
 
     public final static int CHANGE_BUTTON_NAME = 28;
     public final static int CHANGE_BUTTON_TEXT = 29;
