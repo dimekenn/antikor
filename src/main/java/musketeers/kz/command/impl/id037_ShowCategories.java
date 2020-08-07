@@ -14,6 +14,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import javax.xml.stream.events.StartDocument;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class id037_ShowCategories extends Command {
@@ -54,6 +55,7 @@ public class id037_ShowCategories extends Command {
                     reports.setCategoryName(categorys);
                     reports.setChatID(chatId);
                     reports.setFullName(userDao.getUserByChatId(chatId).getFullName());
+                    reports.setDate(new Date());
                     sendMessage(getText(Const.WRITE_REPORT));
                     waitingType = WaitingType.REPORT_TEXT;
                 }
@@ -66,17 +68,6 @@ public class id037_ShowCategories extends Command {
                 sendMessageWithKeyboard(getText(Const.SEND_PHOTO_VIDEO), Const.PHOTO_VIDEO_KEYBOARD);
                 waitingType = WaitingType.REPORT_PHOTO;
                 return COMEBACK;
-//            case SEND_FILE:
-//                deleteMessage(updateMessageId);
-//                if (isButton(1056)) {
-//                    sendMessage(Const.PUT_PHOTO_VIDEO);
-//                } else
-//                if (isButton(1057)){
-//                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
-//                    waitingType = WaitingType.SEND_LOCATION;
-//                }
-//                waitingType = WaitingType.REPORT_PHOTO;
-//                return COMEBACK;
             case REPORT_PHOTO:
                 deleteMessage(updateMessageId);
                 if (hasPhoto()) {
@@ -117,7 +108,4 @@ public class id037_ShowCategories extends Command {
         return EXIT;
     }
 
-//    private int getCategories() throws TelegramApiException{
-//        if ()
-//    }
 }

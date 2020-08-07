@@ -47,8 +47,8 @@ public class CommandFactory {
    //             return new id016_ReportSuggestion();
    //         case 17:
    //             return new id017_ReportSurvey();
-   //         case 18:
-   //             return new id018_ReportProfile();
+//            case 18:
+//                return new id018_ReportProfile();
    //         case 19:
    //             return new id019_EditEvent();
    //         case 20:
@@ -86,6 +86,8 @@ public class CommandFactory {
    //             return new id036_Photo();
             case 37:
                 return new id037_ShowCategories();
+            case 38:
+                return new id038_ProfileReportHistory();
        }
        return null;
    }

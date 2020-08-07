@@ -216,4 +216,12 @@ public class Const {
     public static final int PUT_PHOTO_VIDEO = 1171;
     public static final int WRONG_TYPE = 1172;
     public static final int SEND_LOCATION = 1173;
+    public static final int SEND_PHOTO_SUCCESS = 1174;
+    public static final int SEND_VIDEO_SUCCESS = 1175;
+    public static final int SEND_LOCATION_SUCCESS = 1176;
+    public static final int CHOOSE_REPORT_MESSAGE = 1177;
+    public static final int REPORT_NUMBER = 1178;
+    public static final int REPORT_TEXT = 1179;
+    public static final int REPORT_CATEGORY = 1180;
+    public static final int REPORT_DATE = 1181;
 }
