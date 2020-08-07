@@ -33,8 +33,8 @@ public class CommandFactory {
    //             return new id009_ShowEvent();
    //         case 10:
    //             return new id010_Survey();
-   //         case 11:
-   //             return new id011_ShowAdminInfo();
+            case 11:
+                return new id011_ShowAdminInfo();
    //         case 12:
    //             return new id012_EditMenu();
    //         case 13:
