@@ -23,6 +23,8 @@ public class id037_ShowCategories extends Command {
     private int deleteMessageId;
     private CategoriesDao categoriesDao;
     private Reports reports = new Reports();
+    Float latitude;
+    Float longitude;
     private ReportsDao reportsDao = factory.getReportsDao();
     private int secondDeleteMessageId;
     private Language currentLanguage;
@@ -62,43 +64,47 @@ public class id037_ShowCategories extends Command {
                     reports.setReportText(update.getMessage().getText());
                 }
                 sendMessageWithKeyboard(getText(Const.SEND_PHOTO_VIDEO), Const.PHOTO_VIDEO_KEYBOARD);
-                waitingType = WaitingType.SEND_FILE;
+                waitingType = WaitingType.REPORT_PHOTO;
                 return COMEBACK;
-            case SEND_FILE:
+//            case SEND_FILE:
+//                deleteMessage(updateMessageId);
+//                if (isButton(1056)) {
+//                    sendMessage(Const.PUT_PHOTO_VIDEO);
+//                } else
+//                if (isButton(1057)){
+//                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
+//                    waitingType = WaitingType.SEND_LOCATION;
+//                }
+//                waitingType = WaitingType.REPORT_PHOTO;
+//                return COMEBACK;
+            case REPORT_PHOTO:
                 deleteMessage(updateMessageId);
-                if (isButton(1056)) {
-                    sendMessage(Const.PUT_PHOTO_VIDEO);
-                } else
+                if (hasPhoto()) {
+                    reports.setPhoto(updateMessagePhoto);
+                    sendMessage(Const.SEND_PHOTO_SUCCESS);
+                }
+                if (hasVideo()){
+                    reports.setVideo(updateMessage.getVideo().getFileId());
+                    sendMessage(Const.SEND_VIDEO_SUCCESS);
+                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
+                    waitingType = WaitingType.SEND_LOCATION;
+//                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
+//                    waitingType = WaitingType.SEND_LOCATION;
+//                } else {
+//                    sendMessage(Const.WRONG_TYPE);
+                }
                 if (isButton(1057)){
                     sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
                     waitingType = WaitingType.SEND_LOCATION;
                 }
-                waitingType = WaitingType.REPORT_PHOTO;
-                return COMEBACK;
-            case REPORT_PHOTO:
-                deleteMessage(updateMessageId);
-                System.out.println("zdrasti");
-                if (update.getMessage().hasPhoto()) {
-                    System.out.println("zdrasti2");
-                    reports.setPhoto(updateMessagePhoto);
-                    System.out.println("zdrasti3");
-//                } if (hasVideo()){
-//                    reports.setVideo(updateMessage.getVideo().getFileId());
-                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
-                    waitingType = WaitingType.SEND_LOCATION;
-                } else {
-                    sendMessage(Const.WRONG_TYPE);
-                }
-                sendMessage(Const.SEND_LOCATION);
-                waitingType = WaitingType.SEND_LOCATION;
                 return COMEBACK;
             case SEND_LOCATION:
                 deleteMessage(updateMessageId);
-                Float latitude = update.getMessage().getLocation().getLatitude();
-                Float longitude = update.getMessage().getLocation().getLongitude();
+                latitude = update.getMessage().getLocation().getLatitude();
+                longitude = update.getMessage().getLocation().getLongitude();
                 String location = latitude + ";" + longitude;
                 reports.setLocation(location);
-                sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
+                sendMessage(Const.SEND_LOCATION_SUCCESS);
                 waitingType = WaitingType.SEND_REPORT;
                 return COMEBACK;
             case SEND_REPORT:
@@ -106,7 +112,6 @@ public class id037_ShowCategories extends Command {
                     reportsDao.insert(reports);
                     return EXIT;
                 }
-
         }
 
         return EXIT;

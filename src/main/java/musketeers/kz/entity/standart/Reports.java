@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class Reports {
-    private int ID;
     private String reportText;
     private String photo;
     private String video;
