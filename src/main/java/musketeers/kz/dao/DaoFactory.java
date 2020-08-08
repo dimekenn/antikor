@@ -1,5 +1,6 @@
 package Musketeers.kz.dao;
 
+import Musketeers.kz.entity.standart.ExpressSurvey;
 import Musketeers.kz.utils.PropertiesUtil;
 import Musketeers.kz.dao.impl.*;
 import lombok.NoArgsConstructor;
@@ -69,6 +70,7 @@ public class DaoFactory {
     public ReportsDao getReportsDao(){
         return new ReportsDao();
     }
+    public ExpressSurveyDao getExpressSurveyDAO(){return new ExpressSurveyDao();}
 
     //public CoursesTypeDao getCoursesTypeDao() {
     //    return new CoursesTypeDao();

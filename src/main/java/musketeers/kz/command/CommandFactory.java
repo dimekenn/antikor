@@ -19,7 +19,8 @@ public class CommandFactory {
                 return new id002_SelectionLanguage();
    //         case 3:
    //             return new id003_Suggestion();
-   //         case 4:
+            case 4:
+                return new id004_Survey();
    //             return new id004_FirstRegistration();
    //         case 5:
    //             return new id005_Courses();

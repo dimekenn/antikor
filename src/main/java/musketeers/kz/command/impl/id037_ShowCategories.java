@@ -105,6 +105,7 @@ public class id037_ShowCategories extends Command {
             case SEND_REPORT:
                 if (isButton(1058)){
                     reportsDao.insert(reports);
+                    sendMessage(Const.REPORT_FINISH);
                     return EXIT;
                 }
         }
