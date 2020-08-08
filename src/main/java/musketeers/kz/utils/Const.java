@@ -225,4 +225,15 @@ public class Const {
     public static final int REPORT_CATEGORY = 1180;
     public static final int REPORT_DATE = 1181;
     public static final int ONLY_WITH_LOCATION = 1182;
+    public static final int SURVEY_FIRST_QUEST = 1183;
+    public static final int SURVEY_FIRST_KEYBOARD = 1004;
+    public static final int SURVEY_SECOND_QUEST = 1184;
+    public static final int SURVEY_SECOND_KEYBOARD = 1005;
+    public static final int SURVEY_THIRD_QUEST = 1185;
+    public static final int SURVEY_FORTH_QUEST = 1186;
+    public static final int SURVEY_THIRD_KEYBOARD = 1006;
+    public static final int SURVEY_FORTH_KEYBOARD = 1007;
+    public static final int MAIN_MENU = 1;
+    public static final int SURVEY_FINISH = 1187;
+    public static final int REPORT_FINISH = 1188;
 }
