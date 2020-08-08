@@ -77,7 +77,7 @@ public class id037_ShowCategories extends Command {
                 if (hasVideo()){
                     reports.setVideo(updateMessage.getVideo().getFileId());
                     sendMessage(Const.SEND_VIDEO_SUCCESS);
-                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
+                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), null);
                     waitingType = WaitingType.SEND_LOCATION;
 //                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
 //                    waitingType = WaitingType.SEND_LOCATION;
@@ -85,17 +85,21 @@ public class id037_ShowCategories extends Command {
 //                    sendMessage(Const.WRONG_TYPE);
                 }
                 if (isButton(1057)){
-                    sendMessageWithKeyboard(getText(Const.SEND_LOCATION), Const.LOCATION_KEYBOARD);
+                    sendMessage(Const.SEND_LOCATION);
                     waitingType = WaitingType.SEND_LOCATION;
                 }
                 return COMEBACK;
             case SEND_LOCATION:
                 deleteMessage(updateMessageId);
+                if (isButton(1057)){
+                    sendMessage(Const.ONLY_WITH_LOCATION);
+                }
+                System.out.println("PZDC PROSTO");
                 latitude = update.getMessage().getLocation().getLatitude();
                 longitude = update.getMessage().getLocation().getLongitude();
                 String location = latitude + ";" + longitude;
                 reports.setLocation(location);
-                sendMessage(Const.SEND_LOCATION_SUCCESS);
+                sendMessageWithKeyboard(getText(Const.SEND_LOCATION_SUCCESS), Const.LOCATION_KEYBOARD);
                 waitingType = WaitingType.SEND_REPORT;
                 return COMEBACK;
             case SEND_REPORT:

@@ -224,4 +224,5 @@ public class Const {
     public static final int REPORT_TEXT = 1179;
     public static final int REPORT_CATEGORY = 1180;
     public static final int REPORT_DATE = 1181;
+    public static final int ONLY_WITH_LOCATION = 1182;
 }
