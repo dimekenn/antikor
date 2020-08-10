@@ -8,7 +8,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendVideo;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-public class id011_ShowAdminInfo extends Command {
+public class id004_ShowAdminInfo extends Command {
 
     @Override
     public boolean execute() throws TelegramApiException {

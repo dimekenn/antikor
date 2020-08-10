@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.Date;
 
-public class id004_Survey extends Command {
+public class id003_Survey extends Command {
 
     private ExpressSurvey expressSurvey = new ExpressSurvey();
     private ExpressSurveyDao expressSurveyDao = factory.getExpressSurveyDAO();

@@ -4,7 +4,7 @@ import Musketeers.kz.command.Command;
 import Musketeers.kz.services.Registration;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-public class id021_Registration extends Command {
+public class id012_Registration extends Command {
 
     private Registration registration = new Registration();
 

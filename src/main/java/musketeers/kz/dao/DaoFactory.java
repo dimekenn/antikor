@@ -71,6 +71,10 @@ public class DaoFactory {
         return new ReportsDao();
     }
     public ExpressSurveyDao getExpressSurveyDAO(){return new ExpressSurveyDao();}
+    public AboutUsDao getAboutUsDao(){return new AboutUsDao();}
+    public HostDao getHostDao(){return new HostDao();}
+    public ReceptionTimeDao getReceptionTimeDao(){return new ReceptionTimeDao();}
+    public ReceptionDao getReceptionDao(){return new ReceptionDao();}
 
     //public CoursesTypeDao getCoursesTypeDao() {
     //    return new CoursesTypeDao();

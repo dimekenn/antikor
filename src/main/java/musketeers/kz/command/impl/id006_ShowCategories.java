@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class id037_ShowCategories extends Command {
+public class id006_ShowCategories extends Command {
     private List<Categories> categories;
     private Categories category;
     private ButtonsLeaf buttonsLeaf;
@@ -105,7 +105,7 @@ public class id037_ShowCategories extends Command {
             case SEND_REPORT:
                 if (isButton(1058)){
                     reportsDao.insert(reports);
-                    sendMessage(Const.REPORT_FINISH);
+                    sendMessageWithKeyboard(getText(Const.REPORT_FINISH), Const.MAIN_MENU);
                     return EXIT;
                 }
         }

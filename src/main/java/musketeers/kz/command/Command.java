@@ -66,6 +66,7 @@ public abstract class Command {
     protected static RecipientDao recipientDao = factory.getRecipientDao();
     protected static QuestionDao questionDao = factory.getQuestionDao();
     protected static QuestMessageDao questMessageDao = factory.getQuestMessageDao();
+    protected static HostDao hostDao = factory.getHostDao();
     //protected static EventDao eventDao = factory.getEventDao();
     //protected static ServiceQuestionDao serviceQuestionDao = factory.getServiceQuestionDao();
     //protected static ServiceSurveyAnswerDao serviceSurveyAnswerDao = factory.getServiceSurveyAnswerDao();

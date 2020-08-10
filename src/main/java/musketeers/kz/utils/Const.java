@@ -236,4 +236,14 @@ public class Const {
     public static final int MAIN_MENU = 1;
     public static final int SURVEY_FINISH = 1187;
     public static final int REPORT_FINISH = 1188;
+    public static final int NEWS_MESSAGE=3500;
+    public static final int NEWS_KEYBOARD=3600;
+    public static final int USEFULLINFORMATION_MESSAGE=3501;
+    public static final int USEFULLINFORMATION_KEYBOARD=3601;
+    public static final int HOST_CHOOSE = 1200;
+    public static final int TIME_CHOOSE = 1202;
+    public static final int SIGN = 1203;
+    public static final int FULL_NAME = 1204;
+    public static final int PHONE = 1205;
+    public static final int INFORM = 1206;
 }
